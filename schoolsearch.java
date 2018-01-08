@@ -1,5 +1,5 @@
 /**
- * @author Justin Tomas
+ * @author Justin Tomas and Victor Bodell
  * @version Lab1
  */
 
@@ -8,14 +8,14 @@ import java.io.*;
 
 class schoolsearch {
    static class student {
-      String StLastName;
-      String StFirstName;
-      int Grade;
-      int Classroom;
-      int Bus;
-      double GPA;
-      String TLastName;
-      String TFirstName;
+      String StLastName;   // 0
+      String StFirstName;  // 1
+      int Grade;           // 2
+      int Classroom;       // 3
+      int Bus;             // 4
+      double GPA;          // 5
+      String TLastName;    // 6
+      String TFirstName;   // 7
    }
 
    public static void main(String[] args) throws FileNotFoundException {
@@ -27,8 +27,6 @@ class schoolsearch {
          String student = studentScanner.nextLine();
          String[] attributes = student.split(",");
 
-         System.out.println(attributes[0]);
-         
          int j = 0;
          student s = new student();
 
@@ -43,5 +41,10 @@ class schoolsearch {
 
          students.add(s);
       }
+      
+      Scanner userInput = new Scanner(System.in);
+      System.out.print("Enter a command: ");
+      String command = userInput.nextLine();
+      System.out.println(command);
    }
 }
