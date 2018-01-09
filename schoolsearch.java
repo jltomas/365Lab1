@@ -43,8 +43,43 @@ class schoolsearch {
       }
       
       Scanner userInput = new Scanner(System.in);
-      System.out.print("Enter a command: ");
-      String command = userInput.nextLine();
-      System.out.println(command);
+
+      while(true) {
+         System.out.print("Enter a command: ");
+         String command = userInput.nextLine();
+
+         if (command.equals("Q") || command.equals("Quit"))
+            break;
+
+         switch(command) {
+            case "S":
+            case "Student":
+               System.out.println("Queried students");
+               break;
+            case "T":
+            case "Teacher":
+               System.out.println("Queried teachers");
+               break;
+            case "B":
+            case "Bus":
+               System.out.println("Queried buses");
+               break;
+            case "G":
+            case "Grade":
+               System.out.println("Queried grades");
+               break;
+            case "A":
+            case "Average":
+               System.out.println("Queried averages");
+               break;
+            case "I":
+            case "Info":
+               System.out.println("Queried info");
+               break;
+            default:
+               System.out.println("Invalid Command");
+               break;
+         }
+      }
    }
 }
