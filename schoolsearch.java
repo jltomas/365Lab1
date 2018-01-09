@@ -7,68 +7,101 @@ import java.util.*;
 import java.io.*;
 
 class schoolsearch {
-   static class student {
-      String StLastName;   // 0
-      String StFirstName;  // 1
-      int Grade;           // 2
-      int Classroom;       // 3
-      int Bus;             // 4
+   static class Student {
+      String stLastName;   // 0
+      String stFirstName;  // 1
+      int grade;           // 2
+      int classroom;       // 3
+      int bus;             // 4
       double GPA;          // 5
-      String TLastName;    // 6
-      String TFirstName;   // 7
+      String tLastName;    // 6
+      String tFirstName;   // 7
    }
 
    public static void main(String[] args) throws FileNotFoundException {
+      String commandError = "Command incorrectly formatted";
+
       Scanner studentScanner = new Scanner(new FileInputStream("students.txt"));
+      ArrayList<Student> students = new ArrayList<Student>(); // input from file goes here
 
-      ArrayList<student> students = new ArrayList<student>(); // input from file goes here
-
-      while(studentScanner.hasNextLine()) { // line number
+      while (studentScanner.hasNextLine()) { // line number
          String student = studentScanner.nextLine();
          String[] attributes = student.split(",");
 
          int j = 0;
-         student s = new student();
+         Student s = new Student();
 
-         s.StLastName = attributes[j++];
-         s.StFirstName = attributes[j++];
-         s.Grade = Integer.parseInt(attributes[j++]);
-         s.Classroom = Integer.parseInt(attributes[j++]);
-         s.Bus = Integer.parseInt(attributes[j++]);
+         s.stLastName = attributes[j++];
+         s.stFirstName = attributes[j++];
+         s.grade = Integer.parseInt(attributes[j++]);
+         s.classroom = Integer.parseInt(attributes[j++]);
+         s.bus = Integer.parseInt(attributes[j++]);
          s.GPA = Double.parseDouble(attributes[j++]);
-         s.TLastName = attributes[j++];
-         s.TFirstName = attributes[j++];
+         s.tLastName = attributes[j++];
+         s.tFirstName = attributes[j++];
 
          students.add(s);
       }
       
+      // int numStudents = students.size();
       Scanner userInput = new Scanner(System.in);
 
-      while(true) {
+      while (true) {
          System.out.print("Enter a command: ");
          String command = userInput.nextLine();
          String[] commandComponents = command.split("\\s+");
+         int bus = 0;
 
-         if (commandComponents[0].equals("Q") || commandComponents[0].equals("Quit")) {
+         // Check for quit
+         String firstComm = commandComponents[0];
+         if (firstComm.equals("Q") || firstComm.equals("Quit")) {
             System.out.println("Terminating program...");
             break;
          }
-         else if (commandComponents[0].equals("S") || commandComponents[0].equals("Student")) {
-            System.out.println("Queried students.");
+         else if (firstComm.equals("S:") || firstComm.equals("Student:")) {
+            // Check for correct format
+            int arguments = Arrays.asList(commandComponents).size();
+            if (arguments != 2 && arguments != 3) {
+               System.out.println(commandError);
+            }
+            else {
+               String lastName = commandComponents[1];
+               // Search for last name
+               // print last name, first name, grade, classroom, and name of teacher.
+               // if bus flag is included, search for students, print last, first, and bus route.
+               if (arguments == 3) {
+                  if (commandComponents[2].equals("B") || commandComponents[2].equals("Bus")) {
+                     for (Student s:students) {
+                        if (s.stLastName.equals(lastName)) {
+                           System.out.println(s.stLastName + ", " + s.stFirstName + ", " + s.bus);
+                        }
+                     }
+                  }
+                  else
+                     System.out.println(commandError);
+               }
+               else {
+                  for (Student s: students) {
+                     if (s.stLastName.equals(lastName)) {
+                        System.out.println(s.stLastName + ", " + s.stFirstName + ", " + s.grade + ", " + s.classroom + ", " + s.tLastName + ", " + s.tFirstName);
+                     }
+                  }
+               }
+            }
          }
-         else if (commandComponents[0].equals("T") || commandComponents[0].equals("Teacher")) {
+         else if (firstComm.equals("T:") || firstComm.equals("Teacher:")) {
             System.out.println("Queried teachers.");
          }
-         else if (commandComponents[0].equals("B") || commandComponents[0].equals("Bus")) {
+         else if (firstComm.equals("B:") || firstComm.equals("Bus:")) {
             System.out.println("Queried buses.");
          }
-         else if (commandComponents[0].equals("G") || commandComponents[0].equals("Grade")) {
+         else if (firstComm.equals("G:") || firstComm.equals("Grade:")) {
             System.out.println("Queried grades.");
          }
-         else if (commandComponents[0].equals("A") || commandComponents[0].equals("Average")) {
+         else if (firstComm.equals("A:") || firstComm.equals("Average:")) {
             System.out.println("Queried averages.");
          }
-         else if (commandComponents[0].equals("I") || commandComponents[0].equals("Info")) {
+         else if (firstComm.equals("I") || firstComm.equals("Info")) {
             System.out.println("Queried info.");
          }
          else
