@@ -47,39 +47,32 @@ class schoolsearch {
       while(true) {
          System.out.print("Enter a command: ");
          String command = userInput.nextLine();
+         String[] commandComponents = command.split("\\s+");
 
-         if (command.equals("Q") || command.equals("Quit"))
+         if (commandComponents[0].equals("Q") || commandComponents[0].equals("Quit")) {
+            System.out.println("Terminating program...");
             break;
-
-         switch(command) {
-            case "S":
-            case "Student":
-               System.out.println("Queried students");
-               break;
-            case "T":
-            case "Teacher":
-               System.out.println("Queried teachers");
-               break;
-            case "B":
-            case "Bus":
-               System.out.println("Queried buses");
-               break;
-            case "G":
-            case "Grade":
-               System.out.println("Queried grades");
-               break;
-            case "A":
-            case "Average":
-               System.out.println("Queried averages");
-               break;
-            case "I":
-            case "Info":
-               System.out.println("Queried info");
-               break;
-            default:
-               System.out.println("Invalid Command");
-               break;
          }
+         else if (commandComponents[0].equals("S") || commandComponents[0].equals("Student")) {
+            System.out.println("Queried students.");
+         }
+         else if (commandComponents[0].equals("T") || commandComponents[0].equals("Teacher")) {
+            System.out.println("Queried teachers.");
+         }
+         else if (commandComponents[0].equals("B") || commandComponents[0].equals("Bus")) {
+            System.out.println("Queried buses.");
+         }
+         else if (commandComponents[0].equals("G") || commandComponents[0].equals("Grade")) {
+            System.out.println("Queried grades.");
+         }
+         else if (commandComponents[0].equals("A") || commandComponents[0].equals("Average")) {
+            System.out.println("Queried averages.");
+         }
+         else if (commandComponents[0].equals("I") || commandComponents[0].equals("Info")) {
+            System.out.println("Queried info.");
+         }
+         else
+            System.out.println("Invalid Command");
       }
    }
 }
