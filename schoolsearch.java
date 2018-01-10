@@ -7,6 +7,11 @@ import java.util.*;
 import java.io.*;
 
 class schoolsearch {
+   
+   static final String Database = "students.txt";
+   static final String commandError = "Command incorrectly formatted";
+           
+    
    static class Student {
       String stLastName;   // 0
       String stFirstName;  // 1
@@ -19,9 +24,8 @@ class schoolsearch {
    }
 
    public static void main(String[] args) throws FileNotFoundException {
-      String commandError = "Command incorrectly formatted";
 
-      Scanner studentScanner = new Scanner(new FileInputStream("students.txt"));
+      Scanner studentScanner = new Scanner(new FileInputStream(Database));
       ArrayList<Student> students = new ArrayList<Student>(); // input from file goes here
 
       while (studentScanner.hasNextLine()) { // line number
@@ -51,6 +55,9 @@ class schoolsearch {
          String command = userInput.nextLine();
          String[] commandComponents = command.split("\\s+");
          int bus = 0;
+         
+         boolean found = false;
+         boolean infoCmd = false;
 
          // Check for quit
          String firstComm = commandComponents[0];
@@ -73,6 +80,7 @@ class schoolsearch {
                   if (commandComponents[2].equals("B") || commandComponents[2].equals("Bus")) {
                      for (Student s:students) {
                         if (s.stLastName.equals(lastName)) {
+                           found = true;
                            System.out.println(s.stLastName + ", " + s.stFirstName + ", " + s.bus);
                         }
                      }
@@ -83,6 +91,7 @@ class schoolsearch {
                else {
                   for (Student s: students) {
                      if (s.stLastName.equals(lastName)) {
+                        found = true;
                         System.out.println(s.stLastName + ", " + s.stFirstName + ", " + s.grade + ", " + s.classroom + ", " + s.tLastName + ", " + s.tFirstName);
                      }
                   }
@@ -90,7 +99,21 @@ class schoolsearch {
             }
          }
          else if (firstComm.equals("T:") || firstComm.equals("Teacher:")) {
-            System.out.println("Queried teachers.");
+            // Check for correct format
+            int arguments = Arrays.asList(commandComponents).size();
+            if (arguments != 2) {
+               System.out.println(commandError);
+            }
+            else {
+                String teacherLN = commandComponents[1];
+                for (Student s : students) { //Search for teacher
+                    if(s.tLastName.equals(teacherLN)) {
+                        found = true;
+                        System.out.println(s.stLastName + ", " + s.stFirstName);
+                    }
+                }
+            }
+//            System.out.println("Queried teachers.");
          }
          else if (firstComm.equals("B:") || firstComm.equals("Bus:")) {
             System.out.println("Queried buses.");
@@ -102,10 +125,17 @@ class schoolsearch {
             System.out.println("Queried averages.");
          }
          else if (firstComm.equals("I") || firstComm.equals("Info")) {
+            infoCmd = true;
             System.out.println("Queried info.");
          }
-         else
+         else {
+            infoCmd = true;
             System.out.println("Invalid Command");
+         }
+         
+         if(!found && !infoCmd) {
+             System.out.println("Could not find a match for given query");
+         }
       }
    }
 }
