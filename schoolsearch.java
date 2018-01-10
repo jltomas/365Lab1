@@ -51,6 +51,7 @@ class schoolsearch {
          String command = userInput.nextLine();
          String[] commandComponents = command.split("\\s+");
          int bus = 0;
+         int arguments = Arrays.asList(commandComponents).size();
 
          // Check for quit
          String firstComm = commandComponents[0];
@@ -60,7 +61,6 @@ class schoolsearch {
          }
          else if (firstComm.equals("S:") || firstComm.equals("Student:")) {
             // Check for correct format
-            int arguments = Arrays.asList(commandComponents).size();
             if (arguments != 2 && arguments != 3) {
                System.out.println(commandError);
             }
@@ -93,7 +93,19 @@ class schoolsearch {
             System.out.println("Queried teachers.");
          }
          else if (firstComm.equals("B:") || firstComm.equals("Bus:")) {
-            System.out.println("Queried buses.");
+            // Check for correct format
+            if (arguments != 2)
+                System.out.println(commandError);
+            else {
+               if (isNumeric(commandComponents[1])) {
+                  int argBus = Integer.parseInt(commandComponents[1]);
+                  for (Student s:students) {
+                     if (s.bus == argBus) {
+                        System.out.println(s.stFirstName + ", " + s.stLastName + ", " + s.grade + ", " + s.classroom);
+                     }
+                  }
+               }
+            }
          }
          else if (firstComm.equals("G:") || firstComm.equals("Grade:")) {
             System.out.println("Queried grades.");
@@ -107,5 +119,15 @@ class schoolsearch {
          else
             System.out.println("Invalid Command");
       }
+   }
+
+   private static boolean isNumeric(String str) {
+      try {
+         int i = Integer.parseInt(str);
+      }
+      catch(NumberFormatException nfe) {
+         return false;
+      }
+      return true;
    }
 }
