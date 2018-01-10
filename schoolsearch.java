@@ -120,6 +120,7 @@ class schoolsearch {
             if (arguments != 2)
                 System.out.println(commandError);
             else {
+               // Check that the second argument is a number
                if (isNumeric(commandComponents[1])) {
                   int argBus = Integer.parseInt(commandComponents[1]);
                   for (Student s:students) {
@@ -128,6 +129,8 @@ class schoolsearch {
                      }
                   }
                }
+               else
+                  System.out.println(commandError);
             }
          }
          else if (firstComm.equals("G:") || firstComm.equals("Grade:")) {
