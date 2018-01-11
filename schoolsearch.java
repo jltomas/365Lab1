@@ -100,7 +100,6 @@ class schoolsearch {
          }
          else if (firstComm.equals("T:") || firstComm.equals("Teacher:")) {
             // Check for correct format
-            int arguments = Arrays.asList(commandComponents).size();
             if (arguments != 2) {
                System.out.println(commandError);
             }
@@ -133,8 +132,67 @@ class schoolsearch {
                   System.out.println(commandError);
             }
          }
+         
+         //Grade instruction
+         //Requires a grade int & optional High/Low flag
          else if (firstComm.equals("G:") || firstComm.equals("Grade:")) {
-            System.out.println("Queried grades.");
+            if(arguments != 2 && arguments != 3) { 
+                System.out.println(commandError);
+            }
+            
+            else {
+                if(!isNumeric(commandComponents[1]))
+                    System.out.println(commandError);
+                
+                else {
+                    int argGrade = Integer.parseInt(commandComponents[1]);
+
+                    if(arguments == 2) {
+                        for(Student s : students) { //Find all students w/ grade == argGrade
+                            if (s.grade == argGrade) {
+                                System.out.println(s.stLastName + ", " + s.stFirstName);
+                                found = true;
+                            }
+                        }
+                    }
+                    else { 
+                        //Search for Hi/Lo GPA
+                        Boolean hiGrade = null;
+                        if(commandComponents[2].equals("H") || commandComponents[2].equals("High"))
+                            hiGrade = true;
+                        else if(commandComponents[2].equals("L") || commandComponents[2].equals("Low"))
+                            hiGrade = false;
+                        else 
+                            System.out.println(commandError);
+                        
+                        if(hiGrade != null) {
+                            //Find hi/lo student among same-graders & report
+                            Student uniq = null;
+                            for(Student s : students) {
+                                if(s.grade == argGrade) {
+                                    if(uniq == null) {
+                                        found = true;
+                                        uniq = s;
+                                    }
+                                    else if(hiGrade && s.GPA > uniq.GPA) {
+                                        uniq = s;
+                                    }
+                                    else { //hiGrade == false, find lo-student
+                                        if(s.GPA < uniq.GPA) { //Only update if curr stud has lower grade than uniq
+                                            uniq = s;
+                                        }
+                                    }                                    
+                                }
+                            }
+                            if(found) {
+                                System.out.println(uniq.stLastName + ", " + uniq.stFirstName + ", gpa:" + uniq.GPA + 
+                                        ", teacher:" + uniq.tLastName + ", " + uniq.tFirstName + ", bus:" + uniq.bus);
+                            }
+                        }
+                    }
+                }
+            }
+            
          }
          else if (firstComm.equals("A:") || firstComm.equals("Average:")) {
             System.out.println("Queried averages.");
