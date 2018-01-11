@@ -10,6 +10,7 @@ class schoolsearch {
    
    static final String Database = "students.txt";
    static final String commandError = "Command incorrectly formatted";
+   static final int maxGrade = 6;
            
     
    static class Student {
@@ -197,9 +198,20 @@ class schoolsearch {
          else if (firstComm.equals("A:") || firstComm.equals("Average:")) {
             System.out.println("Queried averages.");
          }
+         
+         //Info instruction
          else if (firstComm.equals("I") || firstComm.equals("Info")) {
             infoCmd = true;
-            System.out.println("Queried info.");
+            
+            //Traverse each grade & report # of stud in each grade
+            int[] numOfStuds = new int[maxGrade+1];
+            for(Student s : students) {
+                numOfStuds[s.grade]++;
+            }
+            
+            for(int i=0; i <= maxGrade; i++) {
+                System.out.println(i + ": " + numOfStuds[i]);
+            }
          }
          else {
             infoCmd = true;
