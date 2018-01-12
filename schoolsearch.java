@@ -71,6 +71,7 @@ class schoolsearch {
             // Check for correct format
             if (arguments != 2 && arguments != 3) {
                System.out.println(commandError);
+               found = true;
             }
             else {
                String lastName = commandComponents[1];
@@ -88,6 +89,7 @@ class schoolsearch {
                   }
                   else
                      System.out.println(commandError);
+                     found = true;
                }
                else {
                   for (Student s: students) {
@@ -103,6 +105,7 @@ class schoolsearch {
             // Check for correct format
             if (arguments != 2) {
                System.out.println(commandError);
+               found = true;
             }
             else {
                 String teacherLN = commandComponents[1];
@@ -117,8 +120,10 @@ class schoolsearch {
          }
          else if (firstComm.equals("B:") || firstComm.equals("Bus:")) {
             // Check for correct format
-            if (arguments != 2)
+            if (arguments != 2) {
                 System.out.println(commandError);
+                found = true;
+            }
             else {
                // Check that the second argument is a number
                if (isNumeric(commandComponents[1])) {
@@ -129,8 +134,10 @@ class schoolsearch {
                      }
                   }
                }
-               else
+               else {
                   System.out.println(commandError);
+                  found = true;
+               }
             }
          }
          
@@ -139,12 +146,14 @@ class schoolsearch {
          else if (firstComm.equals("G:") || firstComm.equals("Grade:")) {
             if(arguments != 2 && arguments != 3) { 
                 System.out.println(commandError);
+                found = true;
             }
             
             else {
-                if(!isNumeric(commandComponents[1]))
+                if(!isNumeric(commandComponents[1])) {
                     System.out.println(commandError);
-                
+                    found = true;
+                } 
                 else {
                     int argGrade = Integer.parseInt(commandComponents[1]);
 
@@ -163,9 +172,10 @@ class schoolsearch {
                             hiGrade = true;
                         else if(commandComponents[2].equals("L") || commandComponents[2].equals("Low"))
                             hiGrade = false;
-                        else 
+                        else {
                             System.out.println(commandError);
-                        
+                            found = true;
+                        }
                         if(hiGrade != null) {
                             //Find hi/lo student among same-graders & report
                             Student uniq = null;
@@ -196,7 +206,28 @@ class schoolsearch {
             
          }
          else if (firstComm.equals("A:") || firstComm.equals("Average:")) {
-            System.out.println("Queried averages.");
+            // Check for correct format
+            if (arguments != 2) {
+                System.out.println(commandError);
+                found = true;
+            }
+            else {
+               double runningTotal = 0;
+               int counter = 0;
+               
+               for (int i = 0; i < students.size(); i++) {
+                  if (students.get(i).grade == Integer.parseInt(commandComponents[1])) {
+                     counter++;
+                     runningTotal += students.get(i).GPA;
+                  }
+               }
+
+               if (counter == 0)
+                  System.out.println("No students exist for this grade");
+               else
+                  System.out.println("Average GPA for Grade " + commandComponents[1] + " is " + (runningTotal/counter));
+               found = true;
+            }
          }
          
          //Info instruction
