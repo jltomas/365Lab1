@@ -1,0 +1,3 @@
+Enter a command: HAVIR, BOBBIE, 2, 108, HAMER, GAVIN
+Enter a command: Could not find a match for given query
+Enter a command: Terminating program...
