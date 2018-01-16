@@ -1,7 +1,7 @@
 # 365Lab1
 ## Authors
 - Victor Bodell (sbodell@calpoly.edu)
-- Justin Thomas (jlthomas@calpoly.edu)
+- Justin Tomas (jltomas@calpoly.edu)
 
 ## How to run
 Run 'make' or 'make students' to compile & launch program

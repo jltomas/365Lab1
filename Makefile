@@ -4,3 +4,6 @@ all: schoolsearch.java
 
 test:
 	@./test.sh
+
+clean:
+	rm tests.out schoolsearch.class schoolsearch\$$Student.class
