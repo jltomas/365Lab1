@@ -1,0 +1,30 @@
+# CSC 365. Winter 2018
+# Lab 1-1 test suite
+
+# Simply launching tests Requirements R1, R2, R3 & R13
+
+# TC-1
+# Tests Requirement R4
+# short form command name, existing student
+# expected output: HAVIR, BOBBIE, 2, 108, 2.88, HAMER, GAVIN
+
+S: HAVIR
+
+# TC-2
+# Tests Requirement R4
+# short form command name, non-existing student
+# expected output: There was no match for the given query
+
+S: NEMO
+
+# TC-3
+# Tests Requirement R5
+# 
+# expected output: There was no match for the given query
+
+
+# TC-
+# Tests Requirement R12
+# Terminate program
+# expected output: Terminating program...
+Q
