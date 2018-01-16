@@ -6,24 +6,74 @@
 # TC-1
 # Tests Requirement R4
 # short form command name, existing student
-# expected output: HAVIR, BOBBIE, 2, 108, 2.88, HAMER, GAVIN
+# expected output: <Line 1 of expected.out> 
 
 S: HAVIR
 
 # TC-2
 # Tests Requirement R4
 # short form command name, non-existing student
-# expected output: There was no match for the given query
+# expected output: <Line 2 of expected.out> 
 
 S: NEMO
 
 # TC-3
 # Tests Requirement R5
-# 
-# expected output: There was no match for the given query
+# long form command name w/ B[us] opt 
+# expected output: <Line 3 of expected.out> 
 
+Student: COMO B
 
-# TC-
+# TC-4
+# Tests Requirement R6
+# short form teacher name
+# expected output: <Line 4-8 of expected.out> 
+
+T: GAMBREL
+
+# TC-5
+# Tests Requirement R7
+# short form Grade query
+# expected output: <Line 9-10 of expected.out> 
+
+G: 1
+
+# TC-6
+# Tests Requirement R8
+# long form Bus line
+# expected output: <Line 11-16 of expected.out> 
+
+Bus: 56
+
+# TC-7
+# Tests Requirement R9
+# short form Grade query w/ H[igh] option
+# expected output: <Line 17 of expected.out> 
+
+G: 1 H
+
+# TC-8
+# Tests Requirement R10
+# short form Average report
+# expected output: <Line 18 of expected.out> 
+
+A: 3
+
+# TC-9
+# Tests Requirement R11
+# long form info query
+# expected output: <Line 19-25 of expected.out>, no. of students in each grade 
+
+Info
+
+# TC-10
+# Tests Error check E1
+# incorrect query
+# expected output: <Line 26 of expected.out>
+
+Bus: Info
+
+# TC-11
 # Tests Requirement R12
 # Terminate program
 # expected output: Terminating program...

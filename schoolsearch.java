@@ -143,6 +143,7 @@ class schoolsearch {
                       for (Student s:students) {
                          if (s.bus == argBus) {
                             System.out.println(s.stFirstName + ", " + s.stLastName + ", " + s.grade + ", " + s.classroom);
+                            found = true;
                          }
                       }
                    }
