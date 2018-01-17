@@ -14,6 +14,7 @@ To modify the commands of the test suite modify 'tests.txt', remember to
 update 'expected.out' accordingly if test.sh shall continue to work properly.
 
 ## Program Commands
+The following commands are used with the database program:
 ```
 - S[tudent]: <LastName>			# Find student w/ given Last Name
 - S[tudent]: B[us]			# Find student w/ given Last Name & notify bus route
