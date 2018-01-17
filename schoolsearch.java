@@ -294,6 +294,19 @@ class schoolsearch {
                      }
                  }
              }
+             else if (firstComm.equals("E") || firstComm.equals("Enrolled")) {
+                 if (arguments != 1) {
+                     System.out.println(commandError);
+                     found = true;
+                 }
+                 else {
+                     HashMap<Integer, Integer> classCount = new HashMap<Integer, Integer>();
+                     for (Student s : students) {
+                         //Add class as key if non-existent, increment value of class-key
+                     }
+                     //Sort by keys (classroom), and print
+                 }
+             }
              else {
                 infoCmd = true; // Invalid command, don't print no match
              if(!prevWasComment)
