@@ -283,7 +283,7 @@ class schoolsearch {
                              for (Teacher t : teachers) {
                                  if(t.classroom == classroomQuery) {
                                      found = true;
-                                     System.out.println(t.tLastName + ", " t.tFirstName);
+                                     System.out.println(t.tLastName + ", " + t.tFirstName);
                                  }
                              }
                          }
@@ -300,11 +300,20 @@ class schoolsearch {
                      found = true;
                  }
                  else {
-                     HashMap<Integer, Integer> classCount = new HashMap<Integer, Integer>();
+                     TreeMap<Integer, Integer> classCount = new TreeMap<Integer, Integer>();
                      for (Student s : students) {
-                         //Add class as key if non-existent, increment value of class-key
+                         // Add class as key if non-existent, increment value of class-key
+                         if(classCount.containsKey(s.classroom)) {
+                             classCount.put(s.classroom, classCount.get(s.classroom) + 1); // Increment if classroom has students 
+                         }
+                         else {
+                             classCount.put(s.classroom, 1); //At least one student's in the classroom
+                         }
                      }
                      //Sort by keys (classroom), and print
+                     for(Integer classroom : classCount.keySet()) {
+                         System.out.println(classroom + ": " + classCount.get(classroom));
+                     }
                  }
              }
              else {
