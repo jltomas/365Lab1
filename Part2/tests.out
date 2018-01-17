@@ -1,0 +1,27 @@
+Enter a command: HAVIR, BOBBIE, 2, 108, HAMER, GAVIN
+Enter a command: Could not find a match for given query
+Enter a command: COMO, ZANDRA, 53
+Enter a command: SCHOENECKER, PHUONG
+CLECKLER, FLOY
+KRAKE, VALENTIN
+CREMEANS, RANDOLPH
+KREESE, CARRIE
+Enter a command: SAELEE, DANILO
+GARTH, JOHN
+Enter a command: NOEL, RACANELLO, 6, 102
+EMMANUEL, VILARDO, 2, 104
+VALENTIN, KRAKE, 6, 109
+INGER, BEAN, 6, 111
+BILLY, BUSSMANN, 2, 108
+WILFREDO, FEYEREISEN, 6, 111
+Enter a command: GARTH, JOHN, gpa:3.14, teacher:FALKER, ADOLPH, bus:0
+Enter a command: Average GPA for Grade 3 is 3.048888888888889
+Enter a command: 0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+Enter a command: Command incorrectly formatted
+Enter a command: Terminating program...
