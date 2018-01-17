@@ -257,9 +257,46 @@ class schoolsearch {
                     System.out.println(i + ": " + numOfStuds[i]);
                 }
              }
+             else if (firstComm.equals("C") || firstComm.equals("Class")) {
+                 //Two scenarios: List students (arg==2) OR List Teachers (arg==3)
+                 if (arguments != 2 && arguments != 3) {
+                     System.out.println(commandError);
+                     found = true;
+                 }
+                 else {
+                     // Get classroom number 
+                     if(!isNumeric(commandComponents[1])) {
+                         System.out.println(commandError);
+                         found = true;
+                     }
+                     else {
+                         int classroomQuery = Integer.parseInt(commandComponents[1]);
+                         if(arguments == 2) {
+                             for (Student s : students) {
+                                 if(s.classroom == classroomQuery) {
+                                     found = true;
+                                     System.out.println(s.stLastName + ", " + s.stFirstName + ", " + s.grade + ", " + s.GPA);
+                                 }
+                             }
+                         }
+                         else if (commandComponents[2].equals("T") || commandComponents[2].equals("Teacher")){
+                             for (Teacher t : teachers) {
+                                 if(t.classroom == classroomQuery) {
+                                     found = true;
+                                     System.out.println(t.tLastName + ", " t.tFirstName);
+                                 }
+                             }
+                         }
+                         else {
+                             System.out.println(commandError);
+                             found = true;
+                         }
+                     }
+                 }
+             }
              else {
                 infoCmd = true; // Invalid command, don't print no match
-            if(!prevWasComment)
+             if(!prevWasComment)
                     System.out.println("Invalid Command");
              }
              
