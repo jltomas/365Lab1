@@ -85,7 +85,7 @@ Class: 101
 # TC-12
 # Tests NR1
 # Short form Classroom number
-# expected output: <Line 29-34 of expected.out>
+# expected output: <Line 29-32 of expected.out>
 
 C: 102
 
@@ -97,6 +97,20 @@ C: 102
 C: 555
 
 # TC-14
+# Tests requirement NR2
+# List teacher(s) teaching in given classroom
+# Expected output: <Line 34 of expected.out>
+
+C: 101 T
+
+# TC-15
+# Tests requirement NR2
+# List teacher(s) teaching in given classroom of non-existent classroom
+# Expected output: <Line 35 of expected.out>
+
+C: 555 T
+
+# TC-XX
 # Tests Requirement R12
 # Terminate program
 # expected output: Terminating program...
