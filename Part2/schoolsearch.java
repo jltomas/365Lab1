@@ -203,7 +203,6 @@ class schoolsearch {
                     System.out.println(commandError);
                     found = true;
                 }
-                
                 else {
                     if(!isNumeric(commandComponents[1])) {
                         System.out.println(commandError);
@@ -227,10 +226,7 @@ class schoolsearch {
                                 hiGrade = true;
                             else if(commandComponents[2].equals("L") || commandComponents[2].equals("Low"))
                                 hiGrade = false;
-                            else {
-                                System.out.println(commandError);
-                                found = true;
-                            }
+                        
                             if(hiGrade != null) {
                                 //Find hi/lo student among same-graders & report
                                 Student uniq = null;
@@ -262,6 +258,24 @@ class schoolsearch {
                                    System.out.println(uniq.stLastName + ", " + uniq.stFirstName + ", gpa:" + uniq.GPA + 
                                             ", teacher:" + tLastName + ", " + tFirstName + ", bus:" + uniq.bus);
                                 }
+                            }
+                            else if(commandComponents[2].equals("T") || commandComponents[2].equals("Teacher")){ //List teachers of given grade
+                                Set<Integer> tempClasses = new HashSet<Integer>();
+                                for(Student s : students) {
+                                    if(s.grade == argGrade) {
+                                        found = true;
+                                        tempClasses.add(s.classroom);
+                                    }
+                                }
+                                for(Teacher t : teachers) {
+                                    if(tempClasses.contains(t.classroom)) {
+                                        System.out.println(t.TLastName + ", " + t.TFirstName);
+                                    }
+                                }
+                            }
+                            else {
+                                System.out.println(commandError);
+                                found = true;
                             }
                         }
                     }
@@ -345,9 +359,9 @@ class schoolsearch {
                  }
              }
              else if (firstComm.equals("E") || firstComm.equals("Enrolled")) {
+                 found = true; //Either we print commandError OR list of classrooms
                  if (arguments != 1) {
                      System.out.println(commandError);
-                     found = true;
                  }
                  else {
                      TreeMap<Integer, Integer> classCount = new TreeMap<Integer, Integer>();
