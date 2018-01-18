@@ -73,7 +73,30 @@ Info
 
 Bus: Info
 
+# 2.0 Command Tests
+
 # TC-11
+# Tests NR1
+# Long form Classroom number
+# expected output: <Line 27-28 of expected.out>
+
+Class: 101
+
+# TC-12
+# Tests NR1
+# Short form Classroom number
+# expected output: <Line 29-34 of expected.out>
+
+C: 102
+
+# TC-13
+# Tests requiremenet NR1
+# No existing class
+# expected output: Could not find a match for given query
+
+C: 555
+
+# TC-14
 # Tests Requirement R12
 # Terminate program
 # expected output: Terminating program...

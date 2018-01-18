@@ -37,7 +37,7 @@ class schoolsearch {
 
           while (studentScanner.hasNextLine()) { // line number
              String student = studentScanner.nextLine();
-             String[] attributes = student.split(",");
+             String[] attributes = student.split(",\\s*");
 
              int j = 0;
              Student s = new Student();
@@ -307,7 +307,7 @@ class schoolsearch {
                     System.out.println(i + ": " + numOfStuds[i]);
                 }
              }
-             else if (firstComm.equals("C") || firstComm.equals("Class")) {
+             else if (firstComm.equals("C:") || firstComm.equals("Class:")) {
                  //Two scenarios: List students (arg==2) OR List Teachers (arg==3)
                  if (arguments != 2 && arguments != 3) {
                      System.out.println(commandError);

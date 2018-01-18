@@ -24,4 +24,11 @@ Enter a command: 0: 0
 5: 0
 6: 21
 Enter a command: Command incorrectly formatted
+Enter a command: DURAND, CARLEE, 4, 2.91
+Enter a command: RACANELLO, NOEL, 6, 3.13
+CORONADO, DIMPLE, 6, 2.88
+BOYTER, WAN, 6, 3.1
+KEMERER, ROSETTA, 6, 2,84
+DEMARTINI, DEWAYNE, 6, 2.93
+Enter a command: Could not find a match for given query
 Enter a command: Terminating program...

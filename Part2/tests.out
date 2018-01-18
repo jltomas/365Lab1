@@ -14,7 +14,7 @@ VALENTIN, KRAKE, 6, 109
 INGER, BEAN, 6, 111
 BILLY, BUSSMANN, 2, 108
 WILFREDO, FEYEREISEN, 6, 111
-Enter a command: GARTH, JOHN, gpa:3.14, teacher:FALKER, ADOLPH, bus:0
+Enter a command: GARTH, JOHN, gpa:3.14, teacher:ADOLPH, ADOLPH, bus:0
 Enter a command: Average GPA for Grade 3 is 3.048888888888889
 Enter a command: 0: 0
 1: 2
@@ -24,4 +24,11 @@ Enter a command: 0: 0
 5: 0
 6: 21
 Enter a command: Command incorrectly formatted
+Enter a command: DURAND, CARLEE, 4, 2.91
+Enter a command: RACANELLO, NOEL, 6, 3.13
+CORONADO, DIMPLE, 6, 2.88
+BOYTER, WAN, 6, 3.1
+KEMERER, ROSETTA, 6, 2.84
+DEMARTINI, DEWAYNE, 6, 2.93
+Enter a command: Could not find a match for given query
 Enter a command: Terminating program...
