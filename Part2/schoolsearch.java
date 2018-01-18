@@ -37,13 +37,13 @@ class schoolsearch {
 
           while (studentScanner.hasNextLine()) { // line number
              String student = studentScanner.nextLine();
-             String[] attributes = student.split(",\\s*");
+             String[] attributes = student.split(",");
 
              int j = 0;
              Student s = new Student();
 
-             s.stLastName = attributes[j++];
-             s.stFirstName = attributes[j++];
+             s.stLastName = attributes[j++].trim();
+             s.stFirstName = attributes[j++].trim();
              s.grade = Integer.parseInt(attributes[j++]);
              s.classroom = Integer.parseInt(attributes[j++]);
              s.bus = Integer.parseInt(attributes[j++]);
@@ -58,14 +58,14 @@ class schoolsearch {
 
           while(teacherScanner.hasNextLine()) {
              String teacher = teacherScanner.nextLine();
-             String[] attributes = teacher.split(", ");
+             String[] attributes = teacher.split(",");
 
              int j = 0;
              Teacher t = new Teacher();
 
-             t.TLastName = attributes[j++];
-             t.TFirstName = attributes[j++];
-             t.classroom = Integer.parseInt(attributes[j++]);
+             t.TLastName = attributes[j++].trim();
+             t.TFirstName = attributes[j++].trim();
+             t.classroom = Integer.parseInt(attributes[j++].trim());
 
              teachers.add(t);
           }
@@ -260,7 +260,7 @@ class schoolsearch {
                                       }
                                    }
                                    System.out.println(uniq.stLastName + ", " + uniq.stFirstName + ", gpa:" + uniq.GPA + 
-                                            ", teacher:" + tFirstName + ", " + tFirstName + ", bus:" + uniq.bus);
+                                            ", teacher:" + tLastName + ", " + tFirstName + ", bus:" + uniq.bus);
                                 }
                             }
                         }
