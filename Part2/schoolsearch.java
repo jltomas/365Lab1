@@ -386,8 +386,26 @@ class schoolsearch {
                    System.out.println(commandError);
                 }
                 else if (commandComponents[1].equals("G")) {
+                   double[] averages = new double[maxGrade + 1];
+
+                   for (int i = 0; i <= maxGrade; i++) {
+                      int numStudents = 0;
+                      for (int j = 0; j < students.size(); j++) {
+                         if (students.get(j).grade == i) {
+                            averages[i] += students.get(j).GPA;
+                            numStudents++;
+                         }
+                      }
+
+                      averages[i] = averages[i] / numStudents;
+                   }
+
+                   for (int i = 0; i <= maxGrade; i++) {
+                      System.out.println("Average GPA for grade " + i + " is " + averages[i]);
+                   }
                 }
                 else if (commandComponents[1].equals("T")) {
+
                 }
                 else if (commandComponents[1].equals("B")) {
                     HashMap<Integer, Double> SumGPA = new HashMap<Integer, Double>();
