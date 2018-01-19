@@ -33,4 +33,5 @@ The following commands are used with the database program:
 - C[lass]: <ClassroomNum> T[eacher]	# List teacher(s) teaching in given Classroom
 - G[rade]: <Grade> T[eacher]		# List all teacher(s) teaching given Grade
 - E[nrolled]				# List no of students in each classroom
+- Z: [G, T, B]				# List the average GPA for either Grades, Teachers or Bus routes
 ```
