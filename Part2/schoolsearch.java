@@ -380,6 +380,19 @@ class schoolsearch {
                      }
                  }
              }
+             else if (firstComm.equals("Analyze") || firstComm.equals("Z")) {
+                if (arguments != 2) {
+                   System.out.println(commandError);
+                }
+                else if (commandComponents[1].equals("G")) {
+                }
+                else if (commandComponents[1].equals("T")) {
+                }
+                else if (commandComponents[1].equals("B")) {
+                }
+                else
+                    System.out.println(commandError);
+             }
              else {
                 infoCmd = true; // Invalid command, don't print no match
              if(!prevWasComment)
