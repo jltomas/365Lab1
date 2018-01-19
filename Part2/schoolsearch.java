@@ -405,7 +405,30 @@ class schoolsearch {
                    }
                 }
                 else if (commandComponents[1].equals("T")) {
-
+                    HashMap<Integer, String> classTeacher = new HashMap<Integer, String>();
+                    for(Teacher t : teachers) {
+                        String temp = t.TLastName + ", " + t.TFirstName;
+                        classTeacher.put(t.classroom, temp);
+                    }
+                    
+                    HashMap<String, Double> SumGPA = new HashMap<String, Double>();
+                    HashMap<String, Integer> numStudents = new HashMap<String, Integer>();
+                    for (Student s : students) {
+                        String teacher = classTeacher.get(s.classroom);
+                        if (SumGPA.containsKey(teacher)) {
+                            SumGPA.put(teacher, SumGPA.get(teacher) + s.GPA);
+                            numStudents.put(teacher, numStudents.get(teacher) + 1);
+                        }
+                        else {
+                            SumGPA.put(teacher, s.GPA);
+                            numStudents.put(teacher, 1);
+                        }
+                    }
+                    for (Map.Entry<String, Double> entry : SumGPA.entrySet()) {
+                        String teacher = entry.getKey();
+                        double GPATotal = entry.getValue();
+                        System.out.println("(" + numStudents.get(teacher) + ") " + teacher + ": " + GPATotal/numStudents.get(teacher));
+                    }
                 }
                 else if (commandComponents[1].equals("B")) {
                     HashMap<Integer, Double> SumGPA = new HashMap<Integer, Double>();
