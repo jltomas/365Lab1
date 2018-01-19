@@ -381,6 +381,7 @@ class schoolsearch {
                  }
              }
              else if (firstComm.equals("Analyze") || firstComm.equals("Z")) {
+                found = true;
                 if (arguments != 2) {
                    System.out.println(commandError);
                 }
@@ -389,6 +390,24 @@ class schoolsearch {
                 else if (commandComponents[1].equals("T")) {
                 }
                 else if (commandComponents[1].equals("B")) {
+                    HashMap<Integer, Double> SumGPA = new HashMap<Integer, Double>();
+                    HashMap<Integer, Integer> numStudents = new HashMap<Integer, Integer>();
+                    for (Student s : students) {
+                        if (SumGPA.containsKey(s.bus)) {
+                            SumGPA.put(s.bus, SumGPA.get(s.bus) + s.GPA);
+                            numStudents.put(s.bus, numStudents.get(s.bus) + 1);
+                        }
+                        else {
+                            SumGPA.put(s.bus, s.GPA);
+                            numStudents.put(s.bus, 1);
+                        }
+                    }
+                    for (Map.Entry<Integer, Double> entry : SumGPA.entrySet()) {
+                        int busRoute = entry.getKey();
+                        double GPATotal = entry.getValue();
+                        System.out.println(busRoute + ": " + GPATotal/numStudents.get(busRoute));
+                    }
+                    
                 }
                 else
                     System.out.println(commandError);
