@@ -31,4 +31,47 @@ BOYTER, WAN, 6, 3.1
 KEMERER, ROSETTA, 6, 2.84
 DEMARTINI, DEWAYNE, 6, 2.93
 Enter a command: Could not find a match for given query
+Enter a command: COOL, REUBEN
+Enter a command: Could not find a match for given query
+Enter a command: FALKER, ADOLPH
+Enter a command: STEIB, GALE
+HAMER, GAVIN
+Enter a command: 101: 1
+102: 5
+103: 2
+104: 2
+105: 6
+106: 2
+107: 7
+108: 11
+109: 5
+110: 2
+111: 9
+112: 8
+Enter a command: Average GPA for grade 0 is NaN
+Average GPA for grade 1 is 2.995
+Average GPA for grade 2 is 2.946153846153846
+Average GPA for grade 3 is 3.048888888888889
+Average GPA for grade 4 is 2.951333333333334
+Average GPA for grade 5 is NaN
+Average GPA for grade 6 is 2.9771428571428578
+Enter a command: (6) HANTZ, JED: 2.9133333333333336
+(2) FALKER, ADOLPH: 2.995
+(2) BODZIONY, LUZ: 3.09
+(5) KERBS, BENITO: 2.976
+(11) HAMER, GAVIN: 2.9545454545454546
+(8) CHIONCHIO, PERLA: 2.985
+(9) NISTENDIRK, NANCY: 2.962222222222222
+(2) ALPERT, JONATHAN: 3.17
+(5) GAMBREL, JAE: 2.96
+(7) FAFARD, ROCIO: 3.0142857142857147
+(1) COOL, REUBEN: 2.91
+(2) STEIB, GALE: 2.9
+Enter a command: 0: 2.9525
+51: 3.02
+52: 2.885
+53: 3.0555555555555554
+54: 2.941666666666667
+55: 3.0366666666666666
+56: 2.9216666666666664
 Enter a command: Terminating program...

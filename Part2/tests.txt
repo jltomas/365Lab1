@@ -110,8 +110,51 @@ C: 101 T
 
 C: 555 T
 
-# TC-XX
+# TC-16
+# Tests requirement NR3
+# List all teacher(s) teaching given Grade (shorthand)
+# Expected output: <Line 36 of expected.out>
+
+G: 1 T
+
+# TC-17
+# Tests requirement NR3
+# List all teacher(s) teaching given Grade (longhand)
+# Expected output: <Lines 37 and 38 of expected.out>
+
+Grade: 2 Teacher
+
+# TC-18
+# Tests requirement NR4
+# List number of students in each classroom
+# Expected output: <Lines 39 - 50 of expected.out>
+
+E
+
+# TC-19
+# Tests requirement NR5
+# List the average GPA for Grades
+# Expected output: <Lines 51 - 57 of expected.out>
+
+Z G
+
+# TC-20
+# Tests requirement NR5
+# List the average GPA for Teachers
+# Expected output: <Lines 58 - 69 of expected.out>
+
+Z T
+
+# TC-21
+# Tests requirement NR5
+# List the average GPA for Bus Routes
+# Expected output: <Lines 70 - 76 of expected.out>
+
+Z B
+
+# TC-22
 # Tests Requirement R12
 # Terminate program
 # expected output: Terminating program...
+
 Q
